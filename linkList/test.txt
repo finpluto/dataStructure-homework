@@ -1,3 +1,0 @@
-This file is just a test text,
-it aim at testing how git works.
-And this is a new testing line.
