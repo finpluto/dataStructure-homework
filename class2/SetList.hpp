@@ -1,21 +1,26 @@
 #ifndef SET_LIST_HPP
 #define SET_LIST_HPP
+struct ListNode{
+    int val;
+    ListNode* next;
+    ListNode(int a):val(a), next(nullptr){}
+};
 class SetList
 {
-private:
-    struct ListNode{
-        int val;
-        ListNode* next;
-        ListNode(int a):val(a), next(nullptr){}
-    };
-    ListNode *head;
 public:
-    SetList(){}
+    ListNode *head;
+    SetList():head(nullptr){}
     /* default construct function
      * do nothing.
      */
     SetList(int values[], int length);
     /* initialize the set by and ordered array.
+     */
+    //SetList(SetList &object);
+    /*copy construct function
+     */
+    SetList(const SetList &obj);
+    /* copy construct function
      */
     ~SetList();
     /* destruct function
@@ -40,20 +45,20 @@ public:
     void deleteObj(int value);
     /* delete an object from the set.
      */
-    SetList unite(SetList A, SetList B);
-    /* calculate the union of set A and B.
-     * return united set.
-     */
-    SetList intersect(SetList A, SetList B);
-    /* calculate the intersection of set A and B.
-     * return intersection set.
-     */
-    SetList subtract(SetList A, SetList B);
-    /* calculate the complement of set A and B.
-     * return complement set.
-     */
     void print();
     /* output all the object in the set by order.
      */
 };
+    SetList unite(SetList A,SetList B);
+    /* calculate the union to set A.
+     * return united set.
+     */
+    SetList intersect(SetList A,SetList B);
+    /* calculate the intersection of set A.
+     * return intersection set.
+     */
+    SetList substract(SetList A, SetList B);
+    /* calculate the complement of set A.
+     * return complement set.
+     */
 #endif

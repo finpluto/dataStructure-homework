@@ -13,6 +13,19 @@ SetList::SetList(int values[], int length): head(nullptr)
     }
 }
 
+SetList::SetList(const SetList &obj)
+{
+    ListNode *copyHead = new ListNode(obj.head->val);
+    this->head = copyHead;
+    ListNode *tmp = obj.head->next;
+    for(;tmp!=nullptr;tmp=tmp->next){
+        ListNode *addingNode = new ListNode(tmp->val);
+        copyHead->next = addingNode;
+        copyHead = copyHead->next;
+    }
+    copyHead->next = nullptr;
+}
+
 SetList::~SetList()
 {
     for(;head!=nullptr;head=head->next){
@@ -91,4 +104,24 @@ void SetList::print()
         std::cout << tmp->val << "->";
     }
     std::cout << "NULL" << std::endl;
+}
+
+SetList unite(SetList A,SetList B){
+    SetList *C = new SetList;
+    *C = A;
+    ListNode *tmp = B.head;
+    for(;tmp!=nullptr;tmp=tmp->next){
+        C->insertObj(tmp->val);
+    }
+    return *C;
+}
+
+SetList intersect(SetList A,SetList B){
+    SetList *C = new SetList;
+    ListNode *tmp = B.head;
+    for(;tmp!=nullptr;tmp=tmp->next){
+        if(A.findObj(tmp->val))
+            C->insertObj(tmp->val);
+    }
+    return *C;
 }
