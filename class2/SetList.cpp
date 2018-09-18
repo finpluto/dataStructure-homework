@@ -100,28 +100,38 @@ void SetList::deleteObj(int value)
 void SetList::print()
 {
     ListNode *tmp = head;
+    std::cout << '{';
     for(;tmp!=nullptr;tmp=tmp->next){
-        std::cout << tmp->val << "->";
+        std::cout << tmp->val;
+        if(tmp->next!=nullptr)    std::cout << ',';
     }
-    std::cout << "NULL" << std::endl;
+    std::cout << '}' << std::endl;
 }
 
 SetList unite(SetList A,SetList B){
-    SetList *C = new SetList;
-    *C = A;
+    SetList C = A;
     ListNode *tmp = B.head;
     for(;tmp!=nullptr;tmp=tmp->next){
-        C->insertObj(tmp->val);
+        C.insertObj(tmp->val);
     }
-    return *C;
+    return C;
 }
 
 SetList intersect(SetList A,SetList B){
-    SetList *C = new SetList;
+    SetList C;
     ListNode *tmp = B.head;
     for(;tmp!=nullptr;tmp=tmp->next){
         if(A.findObj(tmp->val))
-            C->insertObj(tmp->val);
+            C.insertObj(tmp->val);
     }
-    return *C;
+    return C;
+}
+
+SetList substract(SetList A,SetList B){
+    SetList C = A;
+    ListNode *tmp = B.head;
+    for(;tmp!=nullptr;tmp=tmp->next){
+        C.deleteObj(tmp->val);
+    }
+    return C;
 }

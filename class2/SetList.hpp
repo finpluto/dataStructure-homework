@@ -5,6 +5,7 @@ struct ListNode{
     ListNode* next;
     ListNode(int a):val(a), next(nullptr){}
 };
+
 class SetList
 {
 public:
@@ -49,16 +50,17 @@ public:
     /* output all the object in the set by order.
      */
 };
-    SetList unite(SetList A,SetList B);
-    /* calculate the union to set A.
-     * return united set.
-     */
-    SetList intersect(SetList A,SetList B);
-    /* calculate the intersection of set A.
-     * return intersection set.
-     */
-    SetList substract(SetList A, SetList B);
-    /* calculate the complement of set A.
-     * return complement set.
-     */
+
+SetList unite(SetList A,SetList B);
+/* calculate the union to set A.
+ * return united set.
+ */
+SetList intersect(SetList A,SetList B);
+/* calculate the intersection of set A.
+ * return intersection set.
+ */
+SetList substract(SetList A, SetList B);
+/* calculate the complement of set A to B.
+ * return complement set.
+ */
 #endif
