@@ -110,7 +110,7 @@ void SetList::print()
 
 SetList unite(SetList A,SetList B){
     SetList C = A;
-    ListNode *tmp = B.head;
+    ListNode *tmp = B.getHead();
     for(;tmp!=nullptr;tmp=tmp->next){
         C.insertObj(tmp->val);
     }
@@ -119,7 +119,7 @@ SetList unite(SetList A,SetList B){
 
 SetList intersect(SetList A,SetList B){
     SetList C;
-    ListNode *tmp = B.head;
+    ListNode *tmp = B.getHead();
     for(;tmp!=nullptr;tmp=tmp->next){
         if(A.findObj(tmp->val))
             C.insertObj(tmp->val);
@@ -129,7 +129,7 @@ SetList intersect(SetList A,SetList B){
 
 SetList substract(SetList A,SetList B){
     SetList C = A;
-    ListNode *tmp = B.head;
+    ListNode *tmp = B.getHead();
     for(;tmp!=nullptr;tmp=tmp->next){
         C.deleteObj(tmp->val);
     }

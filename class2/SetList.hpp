@@ -9,12 +9,12 @@ struct ListNode{
 class SetList
 {
 private:
+    ListNode *head;
     void addAtTail(int value);
     /* adding an node whose val equals to value,
      * to the end of the list.
      */
 public:
-    ListNode *head;
     SetList():head(nullptr){}
     /* default construct function
      * do nothing.
@@ -47,6 +47,7 @@ public:
     void print();
     /* output all the object in the set by order.
      */
+    ListNode* getHead(){ return head; }
 };
 
 SetList unite(SetList A,SetList B);
