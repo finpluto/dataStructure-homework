@@ -8,6 +8,11 @@ struct ListNode{
 
 class SetList
 {
+private:
+    void addAtTail(int value);
+    /* adding an node whose val equals to value,
+     * to the end of the list.
+     */
 public:
     ListNode *head;
     SetList():head(nullptr){}
@@ -17,9 +22,6 @@ public:
     SetList(int values[], int length);
     /* initialize the set by and ordered array.
      */
-    //SetList(SetList &object);
-    /*copy construct function
-     */
     SetList(const SetList &obj);
     /* copy construct function
      */
@@ -27,10 +29,6 @@ public:
     /* destruct function
      * abandon all node of the list,
      * release all occupied memory.
-     */
-    void addAtTail(int value);
-    /* adding an node whose val equals to value,
-     * to the end of the list.
      */
     bool findObj(int value);
     /* find object whose val equals to value in the set 
