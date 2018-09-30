@@ -28,8 +28,9 @@ SetList::SetList(const SetList &obj)
 
 SetList::~SetList()
 {
-    for(;head!=nullptr;head=head->next){
+    while(head!=nullptr){
         ListNode *tmp = head;
+        head = head->next;
         delete tmp;
     }
 }
