@@ -81,33 +81,33 @@ expressionAnlys::expressionAnlys(string expression)
 
 void expressionAnlys::caculate()
 {
-    Stack<int> res;
+    Stack<double> res;
     for(auto i : suffixExpres){
         if(isNumber(i)){
-            res.push(stoi(i));
+            res.push(stod(i));
         }
         switch(i[0]){
             case '+':{
-                         int a = res.pop();
-                         int b = res.pop();
+                         double a = res.pop();
+                         double b = res.pop();
                          res.push(b+a);
                          break;
                      }
             case '-':{
-                         int a = res.pop();
-                         int b = res.pop();
+                         double a = res.pop();
+                         double b = res.pop();
                          res.push(b-a);    //注意前数减后数
                          break;
                      }
             case '*':{
-                         int a = res.pop();
-                         int b = res.pop();
+                         double a = res.pop();
+                         double b = res.pop();
                          res.push(b*a);
                          break;
                      }
             case '/':{
-                         int a = res.pop();
-                         int b = res.pop();
+                         double a = res.pop();
+                         double b = res.pop();
                          res.push(b/a);    //注意前数除后数
                          break;
                      }
