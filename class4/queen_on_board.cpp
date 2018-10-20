@@ -22,17 +22,17 @@ void ChessBoard::PrintChessBoard() {
     for(int i=0; i<chessboard_length_; i++) {
         if(!column_[i]) {
             for(int j=0; j<chessboard_length_; j++) {
-                cout << "[#]";
+                cout << "[ ]";
             }
             cout << '\n';
         }
         else {
             for(int j=0; j<queens_column_[i]; j++) {
-                cout << "[#]";
+                cout << "[ ]";
             }
             cout << "[Q]";
             for(int j=queens_column_[i]+1; j<chessboard_length_; j++) {
-                cout << "[#]";
+                cout << "[ ]";
             }
             cout << '\n';
         }
@@ -51,10 +51,12 @@ bool ChessBoard::IsAreaInControl(int row, int column) {
 void ChessBoard::PlaceAQueen(int row) {
     for(int column=0; column<chessboard_length_; column++) {
         if(!IsAreaInControl(row,column)) {
+            //放置一个皇后
             queens_column_[row] = column;
             main_diagonal_[chessboard_length_+row-column-1] = true;
             sub_diagonal_[row+column] = true;
             column_[column] = true;
+
             if(row == chessboard_length_-1) {
                 PrintChessBoard();
                 cout << '\n';
@@ -63,6 +65,7 @@ void ChessBoard::PlaceAQueen(int row) {
             else {
                 PlaceAQueen(row+1);
             }
+            //撤销放置，进行回溯
             queens_column_[row] = -1;
             main_diagonal_[chessboard_length_+row-column-1] = false;
             sub_diagonal_[row+column] = false;
