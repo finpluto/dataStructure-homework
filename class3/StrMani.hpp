@@ -14,6 +14,6 @@ vector<string> split(const string &s, const string &del);
 // split string by a string including delimiters.
 // input the string s and string whose character is as delimiters.
 // ouput a vector<string> including split parts and delimiters.
-bool isNumber(const std::string& s);
+bool isNumber(const string& s);
 // determine if a string consist of numbers.
 #endif
